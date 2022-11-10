@@ -29,7 +29,7 @@ class SaveImageToFileWorker(context: Context, workerParams: WorkerParameters) :W
             val resourceUri = inputData.getString(KEY_IMAGE_URI)
             val bitmap = BitmapFactory.decodeStream(
                 resolver.openInputStream(Uri.parse(resourceUri)))
-            
+
             val imageUrl = MediaStore.Images.Media.insertImage(
                 resolver, bitmap, title, dateFormatter.format(Date()))
             if (!imageUrl.isNullOrEmpty()) {
